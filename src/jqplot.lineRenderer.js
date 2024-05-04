@@ -1210,6 +1210,16 @@
     }
     
     function handleClick(ev, gridpos, datapos, neighbor, plot) {
+        var sel = window.getSelection;
+        if (document.selection && document.selection.empty)
+        {
+            document.selection.empty();
+        }
+        else if (sel && !sel().isCollapsed) {
+            var selection = sel();
+            selection.collapse(selection.anchorNode, selection.anchorOffset);
+        }
+        
         if (neighbor) {
             var ins = [neighbor.seriesIndex, neighbor.pointIndex, neighbor.data];
             var evt = jQuery.Event('jqplotDataClick');
@@ -1221,6 +1231,16 @@
     }
     
     function handleRightClick(ev, gridpos, datapos, neighbor, plot) {
+        var sel = window.getSelection;
+        if (document.selection && document.selection.empty)
+        {
+            document.selection.empty();
+        }
+        else if (sel && !sel().isCollapsed) {
+            var selection = sel();
+            selection.collapse(selection.anchorNode, selection.anchorOffset);
+        }
+        
         if (neighbor) {
             var ins = [neighbor.seriesIndex, neighbor.pointIndex, neighbor.data];
             var idx = plot.plugins.lineRenderer.highlightedSeriesIndex;
