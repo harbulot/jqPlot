@@ -261,8 +261,14 @@
                     // get the first div and stroke it
                     var elem = $(this);
                     newContext.strokeStyle = elem.css('border-top-color');
-                    var l = left + elem.position().left;
-                    var t = top + elem.position().top;
+                    var elOffset = $(el).offset();
+                    var rowOffset = elem.parent().offset();
+                    var customPosition = {
+                        top: rowOffset.top - elOffset.top + parseInt(elem.parent().css('padding-top'), 0),
+                        left: rowOffset.left - elOffset.left + parseInt(elem.parent().css('padding-left'), 0)
+                    };
+                    var l = left + customPosition.left;
+                    var t = top + customPosition.top;
                     newContext.strokeRect(l, t, elem.innerWidth(), elem.innerHeight());
 
                     // now fill the swatch
