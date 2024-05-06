@@ -12,7 +12,7 @@
     <property file="dist.props" />
     
     <!-- misc. properties -->
-    <property description="YUICompressor" name="YUICompressor" value="extras/yuicompressor-2.4.7.jar" />
+    <property description="YUICompressor" name="YUICompressor" value="extras/yuicompressor-2.4.8.jar" />
     <loadfile description="Version to build" property="version" srcfile="version.txt">
         <filterchain>
             <striplinebreaks/>
